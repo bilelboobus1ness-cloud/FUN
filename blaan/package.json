@@ -1,0 +1,21 @@
+{
+  "name": "BLAAN Trade Signals",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A full-stack trading signals platform with news integration and risk management",
+  "main": "main.py",
+  "scripts": {
+    "dev": "concurrently \"cd backend && python main.py\" \"cd frontend && npm run dev\"",
+    "build": "cd frontend && npm run build",
+    "start": "cd backend && python main.py"
+  },
+  "keywords": [
+    "forex",
+    "trading",
+    "signals",
+    "risk-management",
+    "news-api"
+  ],
+  "author": "",
+  "license": "MIT"
+}

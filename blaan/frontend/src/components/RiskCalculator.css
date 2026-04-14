@@ -1,0 +1,202 @@
+.risk-calculator {
+  animation: fadeIn 0.5s ease;
+}
+
+.risk-calculator h2 {
+  color: white;
+  margin-bottom: 10px;
+  font-size: 32px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.risk-calculator > p {
+  color: #ecf0f1;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.calculator-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.calculator-form,
+.calculator-results {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.calculator-form h3,
+.calculator-results h3 {
+  color: #2a5298;
+  margin-bottom: 20px;
+  font-size: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f5f5f5;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #2a5298;
+  box-shadow: 0 0 5px rgba(42, 82, 152, 0.3);
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.btn-secondary {
+  background: #95a5a6;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+.btn-secondary:hover {
+  background: #7f8c8d;
+}
+
+.results-display {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.result-card {
+  background: linear-gradient(135deg, #f5f5f5 0%, #ebebeb 100%);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.result-card h4 {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.result-value {
+  font-size: 28px;
+  font-weight: bold;
+  color: #2a5298;
+  margin: 10px 0;
+}
+
+.result-value.positive {
+  color: #27ae60;
+}
+
+.result-unit {
+  color: #999;
+  font-size: 12px;
+}
+
+.info-note {
+  grid-column: 1 / -1;
+  background: #d1ecf1;
+  color: #0c5460;
+  padding: 15px;
+  border-radius: 4px;
+  border-left: 4px solid #0c5460;
+  margin-top: 10px;
+}
+
+.no-results {
+  padding: 40px 20px;
+  text-align: center;
+  color: #999;
+  background: #f9f9f9;
+  border-radius: 4px;
+}
+
+.formula-section {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.formula-section h3 {
+  color: #2a5298;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.formulas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.formula-card {
+  background: linear-gradient(135deg, #f5f7fa 0%, #f0f4f9 100%);
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid #2a5298;
+}
+
+.formula-card h4 {
+  color: #2a5298;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.formula-card p {
+  color: #666;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.formula-card .example {
+  color: #999;
+  font-size: 13px;
+  font-style: italic;
+  padding: 10px;
+  background: white;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+@media (max-width: 1024px) {
+  .calculator-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .results-display {
+    grid-template-columns: 1fr;
+  }
+}

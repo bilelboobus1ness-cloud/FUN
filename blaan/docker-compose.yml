@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:6.0
+    container_name: blaan-mongodb
+    environment:
+      MONGO_INITDB_DATABASE: blaan_db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - blaan-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: blaan-backend
+    environment:
+      MONGODB_URI: mongodb://mongodb:27017
+      DATABASE_NAME: blaan_db
+      NEWSAPI_KEY: ${NEWSAPI_KEY:-demo_key}
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+      TELEGRAM_CHAT_ID: ${TELEGRAM_CHAT_ID}
+      WHATSAPP_ACCOUNT_SID: ${WHATSAPP_ACCOUNT_SID}
+      WHATSAPP_AUTH_TOKEN: ${WHATSAPP_AUTH_TOKEN}
+      WHATSAPP_FROM_NUMBER: ${WHATSAPP_FROM_NUMBER}
+      EMAIL_SENDER: ${EMAIL_SENDER}
+      EMAIL_PASSWORD: ${EMAIL_PASSWORD}
+      FLASK_ENV: production
+      SECRET_KEY: ${SECRET_KEY:-your-secret-key}
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongodb
+    networks:
+      - blaan-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: blaan-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - blaan-network
+
+volumes:
+  mongodb_data:
+
+networks:
+  blaan-network:
+    driver: bridge
