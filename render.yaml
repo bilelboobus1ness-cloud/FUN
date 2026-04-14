@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: blaan-api
+    env: python
+    region: oregon
+    plan: free
+    rootDir: blaan/backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn main:app
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: DEBUG
+        value: false
+      - key: PYTHON_VERSION
+        value: 3.11.0
